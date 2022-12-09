@@ -7,30 +7,47 @@ public class DatabaseManager : MonoBehaviour
     // Player transform for access position
     [SerializeField]
     private Transform playerTransform;
+    // Database name
+    private string dbName = "CoordinateDatabase";
+    // Database Connection
+    IDbConnection connection;
+
+    private void Start()
+    {
+        // Connect Database
+        connection = new SqliteConnection(string.Format("URI=file:Assets/StreamingAssets/{0}.db", dbName));
+    }
 
     void Update()
     {
         // When pressed Q
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            // Connect Database
-            IDbConnection connection = ConnectDatabase("CoordinateDatabase");
-            // Insert position values into table
-            PushCommand(string.Format("INSERT INTO Coordinates (XMovement,YMovement,ZMovement) VALUES({0},{1},{2});", playerTransform.position.x, playerTransform.position.y, playerTransform.position.z), connection);
-            // Close database
-            connection.Close();
+            // Open database
+            connection.Open();
+            // Update Data in Save Slot
+            PushCommand(string.Format("UPDATE Coordinates SET XMovement = {0}, YMovement = {1} , ZMovement = {2} WHERE Slot = 1;", playerTransform.position.x, playerTransform.position.y, playerTransform.position.z), connection);
         }
-    }
 
-    // Connect database with database file name
-    IDbConnection ConnectDatabase(string dbName)
-    {
-        // Search database file
-        IDbConnection connection = new SqliteConnection(string.Format("URI=file:Assets/StreamingAssets/{0}.db", dbName));
-        // Open database
-        connection.Open();
-        // Return database connection for using in another function
-        return connection;
+        // When pressed E
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            // Open database
+            connection.Open();
+
+            // Read X , Y , Z Axis
+            IDataReader dataReader = ReadSavedData();
+
+            // Separate Float Data and assign to player position
+            while (dataReader.Read())
+            {
+                // Assigning saved position
+                playerTransform.position = new Vector3(dataReader.GetFloat(1), dataReader.GetFloat(2), dataReader.GetFloat(3));
+            }
+        }
+
+        // Close database
+        connection.Close();
     }
 
     // Create new command on opened database
@@ -42,5 +59,17 @@ public class DatabaseManager : MonoBehaviour
         command.CommandText = string.Format("{0}", commandString);
         // Execute command reader - execute command
         command.ExecuteReader();
+    }
+
+    // Read last position from coordinates table
+    IDataReader ReadSavedData()
+    {
+        // Create command (query)
+        IDbCommand command = connection.CreateCommand();
+        // Get all data in Slot = 1 from coordinates table
+        command.CommandText = "SELECT * FROM Coordinates WHERE Slot = 1;";
+        // Execute command
+        IDataReader dataReader = command.ExecuteReader();
+        return dataReader;
     }
 }
