@@ -416,8 +416,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 2.5
-  movement: {x: 0, y: 0}
-  rigidbody: {fileID: 0}
+  rigidbody: {fileID: 414249184}
+  animator: {fileID: 414249186}
 --- !u!212 &414249183
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -516,7 +516,7 @@ Animator:
   m_GameObject: {fileID: 414249181}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 195fbca5681fe90468343a9fa1e2e58f, type: 2}
+  m_Controller: {fileID: 9100000, guid: a8940da11becc6c4b8aaa8dce49323e6, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

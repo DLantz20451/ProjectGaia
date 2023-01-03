@@ -5,14 +5,10 @@ using UnityEngine;
 public class Player_Movements : MonoBehaviour
 {
     public float movementSpeed = 1f;   //Movement Speed of the Player
-    public Vector2 movement;           //Movement Axis
+    Vector2 movement;                  //Movement Axis
     public Rigidbody2D rigidbody;      //Player Rigidbody Component
+    public Animator animator;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        rigidbody = this.GetComponent<Rigidbody2D>();
-    }
 
     void FixedUpdate() 
     {
@@ -26,6 +22,11 @@ void Update()
 {
     movement.x = Input.GetAxisRaw("Horizontal");
     movement.y = Input.GetAxisRaw("Vertical");
+
+    animator.SetFloat("Horizontal", movement.x);
+    animator.SetFloat("Vertical", movement.y);
+    animator.SetFloat("Speed", movement.sqrMagnitude);
+
 }
 
 }
