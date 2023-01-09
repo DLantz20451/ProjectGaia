@@ -7,7 +7,8 @@ using UnityEngine.UI;
 public class GameSettings : MonoBehaviour
 {
     public AudioMixer audioMixer;
-
+    public float volumevalue;
+    public Slider volumeslider;
     public TMPro.TMP_Dropdown resolutionDropdown;
 
     Resolution[] resolutions;
@@ -37,6 +38,14 @@ public class GameSettings : MonoBehaviour
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
+
+        volumeslider.value = PlayerPrefs.GetFloat("Volume");
+    }
+
+    void Update()
+    {
+        audioMixer.SetFloat("Volume", volumevalue);
+        PlayerPrefs.SetFloat("Volume", volumevalue);
     }
 
     public void SetResolution(int resolutionIndex)
@@ -47,7 +56,7 @@ public class GameSettings : MonoBehaviour
 
     public void SetVolume(float volume)
     {
-        audioMixer.SetFloat("Volume", volume);
+        volumevalue = volume;
     }
 
     public void SetQuality(int qualityIndex)

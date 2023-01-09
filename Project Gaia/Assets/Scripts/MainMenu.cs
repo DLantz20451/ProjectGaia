@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour
 {
     public void ScenesForward()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene("Game1");
     }
 
     public void QuitGame()

@@ -1811,7 +1811,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4286348543
+    rgba: 4279440246
   m_fontColor: {r: 0.46274513, g: 0.07450981, b: 0.07450981, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -2081,7 +2081,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4286348543
+    rgba: 4279440246
   m_fontColor: {r: 0.46274513, g: 0.07450981, b: 0.07450981, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -2503,7 +2503,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4286348543
+    rgba: 4279440246
   m_fontColor: {r: 0.46274513, g: 0.07450981, b: 0.07450981, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -3062,6 +3062,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: b4daf4371cfe522479f04882a1bfa399, type: 2}
+  volumevalue: 0
+  volumeslider: {fileID: 1599392041}
   resolutionDropdown: {fileID: 774005728}
 --- !u!1 &606612418
 GameObject:
@@ -4522,7 +4524,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4286348543
+    rgba: 4279440246
   m_fontColor: {r: 0.46274513, g: 0.07450981, b: 0.07450981, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
