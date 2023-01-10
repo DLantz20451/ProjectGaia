@@ -25,6 +25,7 @@ namespace Cainos.PixelArtTopDown_Basic
         {
             if (target == null) return;
 
+            //controlls how th ecamera moves with the player, for example lerp is the slight delay of movement when the player moves
             targetPos = target.position + offset;
             transform.position = Vector3.Lerp(transform.position, targetPos, lerpSpeed * Time.deltaTime);
         }
