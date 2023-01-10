@@ -1174,7 +1174,6 @@ GameObject:
   - component: {fileID: 414249184}
   - component: {fileID: 414249183}
   - component: {fileID: 414249182}
-  - component: {fileID: 414249190}
   - component: {fileID: 414249186}
   - component: {fileID: 414249188}
   - component: {fileID: 414249189}
@@ -1372,19 +1371,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.47, y: 0.78}
   m_EdgeRadius: 0
---- !u!114 &414249190
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 414249181}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76401524255593a418fd43d2272bc3b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerTransform: {fileID: 414249185}
 --- !u!1 &449565231
 GameObject:
   m_ObjectHideFlags: 0
@@ -9904,6 +9890,7 @@ GameObject:
   - component: {fileID: 966151340}
   - component: {fileID: 966151339}
   - component: {fileID: 966151343}
+  - component: {fileID: 966151344}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -10011,6 +9998,19 @@ MonoBehaviour:
   volumevalue: 0
   volumeslider: {fileID: 2020760956}
   resolutionDropdown: {fileID: 1021782246}
+--- !u!114 &966151344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 966151338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76401524255593a418fd43d2272bc3b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTransform: {fileID: 414249185}
 --- !u!1 &967780792
 GameObject:
   m_ObjectHideFlags: 0
@@ -11901,10 +11901,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 966151344}
+        m_TargetAssemblyTypeName: DatabaseManager, Assembly-CSharp
+        m_MethodName: SaveGame
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -11912,18 +11912,6 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1587061116
 MonoBehaviour:

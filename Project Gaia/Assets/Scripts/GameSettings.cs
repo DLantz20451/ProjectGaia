@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
 public class GameSettings : MonoBehaviour
 {
+    public GameObject pauseMenu;
+    public static bool isPaused;
     public AudioMixer audioMixer;
     public float volumevalue;
     public Slider volumeslider;
@@ -39,11 +42,26 @@ public class GameSettings : MonoBehaviour
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
 
+        pauseMenu.SetActive(false);
+
         volumeslider.value = PlayerPrefs.GetFloat("Volume");
     }
 
+
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.P))
+        {
+            if(isPaused)
+            {
+                ResumeGame();
+            }
+            else
+            {
+                PauseGame();
+            }
+        }
+
         audioMixer.SetFloat("Volume", volumevalue);
         PlayerPrefs.SetFloat("Volume", volumevalue);
     }
@@ -67,5 +85,30 @@ public class GameSettings : MonoBehaviour
     public void SetFullscreen(bool isFullscreen)
     {
         Screen.fullScreen = isFullscreen;
-    }   
+    }
+
+    public void PauseGame()
+    {
+        pauseMenu.SetActive(true);
+        Time.timeScale = 0f;
+        isPaused = true;
+    }
+
+    public void ResumeGame()
+    {
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1f;
+        isPaused = false;
+    }
+
+    public void GoToMainMenu()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Main Menu");
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }
