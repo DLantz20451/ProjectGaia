@@ -15,4 +15,9 @@ public class MainMenu : MonoBehaviour
     {
         Application.Quit();
     }
+    // restarts game and returns to main menu
+    public void ExitButton()
+    {
+        SceneManager.LoadScene("Main Menu");
+    }
 }
