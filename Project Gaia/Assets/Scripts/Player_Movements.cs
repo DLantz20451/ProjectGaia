@@ -10,7 +10,7 @@ public class Player_Movements : MonoBehaviour
     public Animator animator;
 
 
-    void FixedUpdate()
+    void FixedUpdate() 
     {
         //Time.fixedDeltaTime = interval in seconds at which physics and other fixed frame rate updates.
 
@@ -19,16 +19,16 @@ public class Player_Movements : MonoBehaviour
 
     // Update is called once per frame
     // gets direction, no matter if you use wasd or arrows
-    void Update()
-    {
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
+void Update()
+{
+    movement.x = Input.GetAxisRaw("Horizontal");
+    movement.y = Input.GetAxisRaw("Vertical");
 
-        // keeps track for the animation so when you move it changes where micheal is looking
-        animator.SetFloat("Horizontal", movement.x);
-        animator.SetFloat("Vertical", movement.y);
-        animator.SetFloat("Speed", movement.sqrMagnitude);
+    // keeps track for the animation so when you move it changes where micheal is looking
+    animator.SetFloat("Horizontal", movement.x);
+    animator.SetFloat("Vertical", movement.y);
+    animator.SetFloat("Speed", movement.sqrMagnitude);
 
-    }
+}
 
 }
