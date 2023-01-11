@@ -618,7 +618,7 @@ PlayerSettings:
   cloudServicesEnabled:
     Build: 0
     Collab: 0
-    Game Performance: 0
+    Game Performance: 1
     Purchasing: 0
     UDP: 0
     Unity Ads: 0
@@ -636,11 +636,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 879fae72-d026-4260-a5fc-0b0f347e7749
+  cloudProjectId: 26876903-2d1d-40e9-a983-673b7796242b
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
   projectName: Project Gaia
-  organizationId: exaltedblade
+  organizationId: unity_20567
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   playerDataPath: 
