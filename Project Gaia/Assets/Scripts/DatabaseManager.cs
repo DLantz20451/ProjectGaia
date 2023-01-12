@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Data;
+using UnityEngine.SceneManagement;
 using Mono.Data.Sqlite; // For using SQLite
 
 public class DatabaseManager : MonoBehaviour
@@ -29,25 +30,38 @@ public class DatabaseManager : MonoBehaviour
             PushCommand(string.Format("UPDATE Coordinates SET XMovement = {0}, YMovement = {1} , ZMovement = {2} WHERE Slot = 1;", playerTransform.position.x, playerTransform.position.y, playerTransform.position.z), connection);
         }
 
-        // When pressed E
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            // Open database
-            connection.Open();
+        // Close database
+        connection.Close();
+    }
 
-            // Read X , Y , Z Axis
-            IDataReader dataReader = ReadSavedData();
+    public void SaveGame()
+    {
+        // Open database
+        connection.Open();
+        // Update Data in Save Slot
+        PushCommand(string.Format("UPDATE Coordinates SET XMovement = {0}, YMovement = {1} , ZMovement = {2} WHERE Slot = 1;", playerTransform.position.x, playerTransform.position.y, playerTransform.position.z), connection);
 
-            // Separate Float Data and assign to player position
-            while (dataReader.Read())
-            {
-                // Assigning saved position
-                playerTransform.position = new Vector3(dataReader.GetFloat(1), dataReader.GetFloat(2), dataReader.GetFloat(3));
-            }
-        }
 
         // Close database
         connection.Close();
+    }
+
+    public void LoadGame()
+    {
+        SceneManager.LoadScene("Game1");
+
+        // Open database
+        connection.Open();
+
+        // Read X , Y , Z Axis
+        IDataReader dataReader = ReadSavedData();
+
+        // Separate Float Data and assign to player position
+        while (dataReader.Read())
+        {
+            // Assigning saved position
+            playerTransform.position = new Vector3(dataReader.GetFloat(1), dataReader.GetFloat(2), dataReader.GetFloat(3));
+        }
     }
 
     // Create new command on opened database
