@@ -9,10 +9,10 @@ EditorUserSettings:
       value: 5b520d0503545b0d0c0c0a2715770748154f4d2c7d7d7e627a7d4a35b4e1646a
       flags: 0
     RecentlyUsedSceneGuid-1:
-      value: 0705060355545e0f595b5a2744750a44174f4f7e797827622e7a4d66b6e33061
+      value: 51060654545650095f5d5d74137a0a4446161c7a7b797264742d4830b7b66d6d
       flags: 0
     RecentlyUsedSceneGuid-2:
-      value: 51060654545650095f5d5d74137a0a4446161c7a7b797264742d4830b7b66d6d
+      value: 0705060355545e0f595b5a2744750a44174f4f7e797827622e7a4d66b6e33061
       flags: 0
     RecentlyUsedSceneGuid-3:
       value: 52525703500d08085c590e2115770f4446161b2c757f2267782c4e32b3b96068
@@ -25,8 +25,8 @@ EditorUserSettings:
   m_VCDebugCmd: 0
   m_VCDebugOut: 0
   m_SemanticMergeMode: 2
-  m_DesiredImportWorkerCount: 1
-  m_StandbyImportWorkerCount: 1
+  m_DesiredImportWorkerCount: 4
+  m_StandbyImportWorkerCount: 2
   m_IdleImportWorkerShutdownDelay: 60000
   m_VCShowFailedCheckout: 1
   m_VCOverwriteFailedCheckoutAssets: 1
