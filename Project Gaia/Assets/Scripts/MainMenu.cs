@@ -14,7 +14,7 @@ public class MainMenu : MonoBehaviour
     //this is what the start button does when pressed
     public void PlayGame()
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Game1");
     }
 
     //and respectfully this is the quit buttons actions
